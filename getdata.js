@@ -1,5 +1,6 @@
 //var returnsCalc = require('./returnsCalc');
 var fs = require('fs');
+var https = "";//require('https');
 
 
 function returnsCalc(js, colName) {
@@ -29,8 +30,6 @@ function returnsCalc(js, colName) {
             , 7
             )
         
-        //var prevIdx = getPrevPeriodDateIndex(timeSeries, currIdx, 7);
-
         if (prevIdx != -1) {
             // Find the point seven days earlier
             // create return
@@ -61,15 +60,53 @@ function returnsCalc(js, colName) {
     };
 }
 
-fs.readFile('./AAPL.json', 'utf8', function (err, data) {
-    if (err) {
-        return console.log(err);
-    }
+function parseData(datasetName, apiKey, startDate, endDate) {
 
-    var js = JSON.parse(data);
-    var minmax = returnsCalc(js, 'Adj. Close');
-    console.log(minmax);
+    var url = 'https://www.quandl.com/api/v3/datasets/WIKI/' + datasetName + ".json"
+        + '&' + startDate
+        + '&' + startDate
+        + '&' + apiKey;
+
+    console.log(url);
+
+    https.get("www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=8fH3f6QzDf7TrZdRbiFg",
+        function (res) {
+            console.log("Got response: " + res);
+            
+/*            var js = JSON.parse(data);
+            var minmax = returnsCalc(js, 'Adj. Close');
+            console.log(minmax);      */      
+            
+        }).on('error', function (e) {
+            console.log("Got error: " + e.message);
+        }); 
+  
 
 }
+    
 
-);
+// get arguments    
+var datasetName = "";
+var apiKey = "";
+var startDate = "";
+var endDate = "";    
+
+process.argv.forEach(function(val, index, array) {
+    
+    if (val.indexOf('api_key=') != -1)
+        apiKey = val;
+
+    if (val.indexOf('start_date=') != -1)
+        startDate = val;
+
+    if (val.indexOf('end_date=') != -1)
+        endDate = val;
+        
+    if (val.indexOf('dataset=') != -1)
+        datasetName = val.split('=')[1];
+        
+});
+
+// get returns of given dataset
+parseData(datasetName, apiKey, startDate, endDate);
+
