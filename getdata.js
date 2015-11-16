@@ -2,23 +2,6 @@
 var fs = require('fs');
 
 
-function getPrevPeriodDateIndex(ds, currentIdx, daysInPeriod) {
-    var currentDate = new Date(ds[currentIdx][0]);
-    var DAY_MILLISECS = 24 * 60 * 60 * 1000;
-
-    for (var i = currentIdx; i < ds.length; i++) {
-        var prevDate = new Date(ds[i][0]);
-
-        if ((currentDate.getTime() - prevDate.getTime()) / DAY_MILLISECS >= daysInPeriod)
-            return i;
-    }
-
-    return null;
-}
-
-
-
-
 function returnsCalc(js, colName) {
 
     var min = 999999999999;
@@ -31,7 +14,7 @@ function returnsCalc(js, colName) {
 
     var colIndex = js.dataset.column_names.indexOf(colName);
     var timeSeries = js.dataset.data;
-    
+
 
     while (timeSeries.length > 0) {
 
@@ -64,8 +47,8 @@ function returnsCalc(js, colName) {
             }
 
         }
-        
-       timeSeries.shift();
+
+        timeSeries.shift();
 
     }
 
@@ -89,4 +72,4 @@ fs.readFile('./AAPL.json', 'utf8', function (err, data) {
 
 }
 
-    );
+);
