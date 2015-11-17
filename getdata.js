@@ -1,9 +1,12 @@
 //var returnsCalc = require('./returnsCalc');
 var fs = require('fs');
-var https = "";//require('https');
+var https = require('https');
+var moment = require('moment');
 
 
-function returnsCalc(js, colName) {
+function returnsCalc(js, colName, period, periodType) {
+
+    
 
     var min = 999999999999;
     var max = -999999999999;
@@ -20,16 +23,18 @@ function returnsCalc(js, colName) {
     while (timeSeries.length > 0) {
 
         var currentDate = new Date(timeSeries[0][0]);
+        var endPeriodDate = moment(currentDate).subtract(period, periodType).toDate();
 
         var prevIdx = timeSeries.findIndex(
             function isPrevPeriod(item) {
                 var itemDate = new Date(item[0]);
-                return (currentDate.getTime() - itemDate.getTime()) / DAY_MILLISECS >= daysInPeriod;
+                //return (currentDate.getTime() - itemDate.getTime()) / DAY_MILLISECS >= daysInPeriod;
+                return itemDate <= endPeriodDate;
 
             }
             , 7
             )
-        
+
         if (prevIdx != -1) {
             // Find the point seven days earlier
             // create return
@@ -60,7 +65,7 @@ function returnsCalc(js, colName) {
     };
 }
 
-function parseData(datasetName, apiKey, startDate, endDate) {
+function parseData(datasetName, apiKey, startDate, endDate, periodSpan) {
 
     var url = 'https://www.quandl.com/api/v3/datasets/WIKI/' + datasetName + ".json"
         + '&' + startDate
@@ -73,40 +78,63 @@ function parseData(datasetName, apiKey, startDate, endDate) {
         function (res) {
             console.log("Got response: " + res);
             
-/*            var js = JSON.parse(data);
-            var minmax = returnsCalc(js, 'Adj. Close');
-            console.log(minmax);      */      
-            
+            /*            var js = JSON.parse(data);
+                        var minmax = returnsCalc(js, 'Adj. Close', periodSpan);
+                        console.log(minmax);      */
+
         }).on('error', function (e) {
             console.log("Got error: " + e.message);
-        }); 
-  
+        });
+        
+
+}
+
+
+function processArgs() {
+    // get arguments    
+    var datasetName = "";
+    var apiKey = "";
+    var startDate = "";
+    var endDate = "";
+    var period = "";
+    var periodType = "";
+
+    process.argv.forEach(function (val, index, array) {
+
+        if (val.indexOf('api_key=') != -1)
+            apiKey = val;
+
+        if (val.indexOf('start_date=') != -1)
+            startDate = val;
+
+        if (val.indexOf('end_date=') != -1)
+            endDate = val;
+
+        if (val.indexOf('dataset=') != -1)
+            datasetName = val.split('=')[1];
+
+        if (val.indexOf('period=') != -1)
+            period = val.split('=')[1];
+
+        if (val.indexOf('periodType=') != -1)
+            periodType = val.split('=')[1];
+
+        parseData(datasetName, apiKey, startDate, endDate);
+
+    });
 
 }
     
+fs.readFile('./AAPL.json', 'utf8', function (err, data) {
+    if (err) {
+        return console.log(err);
+    }
 
-// get arguments    
-var datasetName = "";
-var apiKey = "";
-var startDate = "";
-var endDate = "";    
+    var js = JSON.parse(data);
+    var minmax = returnsCalc(js, 'Adj. Close', 7, 'days');
+    console.log(minmax);
+}
 
-process.argv.forEach(function(val, index, array) {
+);
+  
     
-    if (val.indexOf('api_key=') != -1)
-        apiKey = val;
-
-    if (val.indexOf('start_date=') != -1)
-        startDate = val;
-
-    if (val.indexOf('end_date=') != -1)
-        endDate = val;
-        
-    if (val.indexOf('dataset=') != -1)
-        datasetName = val.split('=')[1];
-        
-});
-
-// get returns of given dataset
-parseData(datasetName, apiKey, startDate, endDate);
-
