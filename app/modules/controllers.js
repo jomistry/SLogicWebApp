@@ -13,7 +13,7 @@ angular.module('controllersModule', [])
         self.perpage = 12;
 
         $http.get(
-            'https://www.quandl.com/api/v3/datasets.json?database_code=WIKI&query=' + self.pageInfo.query + '&per_page=' + self.pageInfo.per_page + '&page=' + self.pageInfo.current_page
+            'https://www.quandl.com/api/v3/datasets.json?api_key=8fH3f6QzDf7TrZdRbiFg&database_code=WIKI&query=&' + self.pageInfo.query + '&per_page=' + self.pageInfo.per_page + '&page=' + self.pageInfo.current_page
             ).success(function (data) {
                 self.datasets = data.datasets;
                 self.pageInfo = data.meta;
