@@ -1,20 +1,18 @@
 
-var https = require('https')
+var https = require('https');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-
-
-https.get('www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2010-01-01&end_date=2014-12-3', function (res) {
-  console.log('Got response: ' + res.statusCode);
-  res.setEncoding('utf8');
-  res.on('data', function (data) {
-    console.log(data);
-  });
+https.get('https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.csv?end_date=2015-05-27', function (res) {
+    console.log('Got response: ' + res.statusCode);
+    res.setEncoding('utf8');
+    res.on('data', function (data) {
+        console.log(data);
+    });
 })
-  .on('error', function (e) {
-    console.log('Got error: ' + e.message);
-  });
+    .on('error', function (e) {
+        console.log('Got error: ' + e.message);
+    });
 
 
 /*
