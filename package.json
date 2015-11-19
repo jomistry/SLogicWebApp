@@ -1,0 +1,26 @@
+{
+  "name": "webapptraining",
+  "version": "1.0.0",
+  "description": "My first web app",
+  "main": "getdata - Task2a.js",
+  "dependencies": {
+    "http": "^0.0.0",
+    "https": "^1.0.0",
+    "moment": "^2.10.6",
+    "http-server": "^0.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+     "start": "http-server app/ -a localhost -p 8080 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jomistry/SLogicWebApp.git"
+  },
+  "author": "Jo Mistry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jomistry/SLogicWebApp/issues"
+  },
+  "homepage": "https://github.com/jomistry/SLogicWebApp#readme"
+}

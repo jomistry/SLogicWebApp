@@ -4,38 +4,11 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" ng-repeat="i in searchResults.datasets">
      <div class="large-12 columns">
-         <a href="Task3Meta.html">Dataset 1</a><br/>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur itaque alias a, necessitatibus eligendi, ipsa voluptatum iusto, illo ratione facere expedita tenetur placeat veritatis doloremque aut quasi numquam accusantium magnam?</div>
-          <div><span style="color:red">Code:</span><span style="color:black">WIKI/AAPL</span></div>
-     </div>
-     <hr />
-  </div>
-  
-  <div class="row">
-     <div class="large-12 columns">
-         <a href="Task3Meta.html">Dataset 1</a><br/>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur itaque alias a, necessitatibus eligendi, ipsa voluptatum iusto, illo ratione facere expedita tenetur placeat veritatis doloremque aut quasi numquam accusantium magnam?</div>
-          <div><span style="color:red">Code:</span><span style="color:black">WIKI/AAPL</span></div>
-     </div>
-     <hr />
-  </div>
-
-  <div class="row">
-     <div class="large-12 columns">
-         <a href="Task3Meta.html">Dataset 1</a><br/>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur itaque alias a, necessitatibus eligendi, ipsa voluptatum iusto, illo ratione facere expedita tenetur placeat veritatis doloremque aut quasi numquam accusantium magnam?</div>
-          <div><span style="color:red">Code:</span><span style="color:black">WIKI/AAPL</span></div>
-     </div>
-     <hr />
-  </div>
-  
-  <div class="row">
-     <div class="large-12 columns">
-         <a href="Task3Meta.html">Dataset 1</a><br/>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur itaque alias a, necessitatibus eligendi, ipsa voluptatum iusto, illo ratione facere expedita tenetur placeat veritatis doloremque aut quasi numquam accusantium magnam?</div>
-          <div><span style="color:red">Code:</span><span style="color:black">WIKI/AAPL</span></div>
+         <h4><a href="ds/{{i.name}}">{{i.name}}</a></h4>
+          <div>{{i.description}}</div>
+          <div><span style="color:red">Code:</span><span style="color:black">{{i.database_code}}/{{i.dataset_code}}</span></div>
      </div>
      <hr />
   </div>
