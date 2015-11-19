@@ -6,7 +6,11 @@ angular.module('controllersModule', [])
             per_page: 12,
             current_page: $routeParams.pagenum == null ? 1 : $routeParams.pagenum,
             prev_page: null,
+<<<<<<< HEAD
             query: $routeParams.searchterm == null ? 'A' : $routeParams.searchterm,
+=======
+            query: $routeParams.searchterm == null ? 'A' : $routeParams.searchterm, 
+>>>>>>> 1d18c57... add paging
             next_page: 1
         };
 
@@ -40,10 +44,20 @@ angular.module('controllersModule', [])
         self.endDate = new Date().toISOString().substr(0,10); 
         
         $http.get(
+<<<<<<< HEAD
             'https://www.quandl.com/api/v3/datasets/WIKI/' + self.code + '/data.json?api_key=8fH3f6QzDf7TrZdRbiFg&end_date=' + self.endDate
             ).success(function (data) {
                 self.dataSet = data.dataset_data;
             })
             .error(function (e) { console.log(e); });    
         
+=======
+            'https://www.quandl.com/api/v3/datasets.json?database_code=WIKI&query=' + self.pageInfo.query + '&per_page=' + self.pageInfo.per_page + '&page=' + self.pageInfo.current_page
+            ).success(function (data) {
+                self.datasets = data.datasets;
+                self.pageInfo = data.meta;
+            })
+            .error(function (e) {console.log(e); });
+
+>>>>>>> 1d18c57... add paging
     }]);

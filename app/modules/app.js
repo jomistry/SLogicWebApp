@@ -5,7 +5,16 @@ angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize'])
             controller: 'searchResultsCtrl',
             controllerAs: 'searchResults'
         })
+<<<<<<< HEAD
         .when('/:searchterm/p/:pagenum', {
+=======
+        .when('/:searchterm/:pagenum', {
+            templateUrl: 'views/searchResults.html',
+            controller: 'searchResultsCtrl',
+            controllerAs: 'searchResults'
+        })      
+        .when('/:searchterm', {
+>>>>>>> 1d18c57... add paging
             templateUrl: 'views/searchResults.html',
             controller: 'searchResultsCtrl',
             controllerAs: 'searchResults'
