@@ -5,11 +5,9 @@
   </div>
 
   <div class="row" ng-repeat="i in searchResults.datasets">
-     <div class="large-12 columns">
+     <div class="large-12 columns panel">
          <h4><a href="ds/{{i.name}}">{{i.name}}</a></h4>
-          <div ng-bind-html-with-sanitize="i.description"></div>
-          <hr/>
-          <div style="color:red">{{i.description}}</div>
+          <div ng-bind-html="i.description"></div>
           <div><span style="color:red">Code:</span><span style="color:black">{{i.database_code}}/{{i.dataset_code}}</span></div>
      </div>
      <hr />
