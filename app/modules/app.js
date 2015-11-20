@@ -9,12 +9,16 @@ angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize'])
             templateUrl: 'views/searchResults.html',
             controller: 'searchResultsCtrl',
             controllerAs: 'searchResults'
-        })   
+        })
         .when('/:searchterm', {
             templateUrl: 'views/searchResults.html',
             controller: 'searchResultsCtrl',
             controllerAs: 'searchResults'
-        })   
-              
-            .otherwise({ redirectTo: '/' });
+        })
+        .when('/ds/:code', {
+            templateUrl: 'views/dataSet.html',
+            controller: 'dataSetCtrl',
+            controllerAs: 'dataSet'
+        })
+        .otherwise({ redirectTo: '/' });
     }]);

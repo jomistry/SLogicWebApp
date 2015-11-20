@@ -1,44 +1,39 @@
-  <div class="row">
+<div class="row">
     <div class="large-12 columns">
-      <h1>DataSet name goes here</h1>
+        <h1>DataSet name goes here</h1>
     </div>
-  </div>
+</div>
 
-  <div class="row">
+<div class="row">
     <div class="large-4 columns" style="background-color:lightgrey">
-      <h3>Refreshed</h3>
-      12 hours ago
-      <hr />
-      <h3>Frequency</h3>
-      Daily
-      <hr />
-      <h3>Description</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eaque itaque commodi facere, explicabo nostrum magnam! Architecto quaerat id neque unde earum asperiores cupiditate, dignissimos porro non, dolor soluta quod.</p>
-     
-      
+        <h3>Refreshed</h3> 12 hours ago
+        <hr />
+        <h3>Frequency</h3> Daily
+        <hr />
+        <h3>Description</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eaque itaque commodi facere, explicabo nostrum
+            magnam! Architecto quaerat id neque unde earum asperiores cupiditate, dignissimos porro non, dolor soluta quod.</p>
+
+
     </div>
     <div class="large-8 columns">
-       <div class="row">
-           <div class="large-12 columns"> <h3>Chart</h3>
-           <img src="img/chart.png" alt="Chart goes here" />
-           <div>
-       </div>
-       <div class="row">
-           <div class="large-12 columns"> 
-               <h3>LATEST VALUES</h3>
-               <ul class="large-block-grid-3 small-block-grid-1">
-                   <li>DATE<br><b>....</b><hr></li>
-                   <li>OPEN<br><b>....</b><hr></li>
-                   <li>HIGH<br><b>....</b><hr></li>
-                   <li>LOW<br><b>....</b><hr></li>
-                   <li>CLOSE<br><b>....</b><hr></li>
-                   <li>VOLUME<br><b>....</b><hr></li>
-                   <li>EX-DIVIDEND<br><b>....</b><hr></li>
-                   <li>SPLIT RATIO<br><b>....</b><hr></li>
-                   <li>ADJ. OPEN<br><b>....</b><hr></li>
-               </ul>
-           </div>
-       </div>
-    </div>
-    <hr/>
-  </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h3>Chart</h3>
+                <img src="img/chart.png" alt="Chart goes here" />
+                <div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>LATEST VALUES</h3>
+                        <ul class="large-block-grid-3 small-block-grid-1" ng-repeat="i in dataSet.column_names">
+                            <li>{{i}}
+                                <br><b>...</b>
+                                <hr>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        </div>

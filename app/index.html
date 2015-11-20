@@ -24,12 +24,12 @@
             <!-- Right Nav Section -->
             <ul class="right">
                 <li class="has-form">
-                    <div class="row collapse" >
+                    <div class="row collapse" ng-controller="searchResultsCtrl as s" >
                         <div class="large-8 small-9 columns">
-                            <input type="text" placeholder="Find DataSet" ng-model="queryText">
+                            <input type="text" placeholder="Find DataSet" ng-keypress="s.doSearch($event, $location)" ng-model="s.pageInfo.query">
                         </div>
                         <div class="large-4 small-3 columns">
-                            <a href="/#/{{queryText}}"  ng-click="" class="alert button expand">Search</a>
+                            <a id="searchBtn" href="/#/{{s.pageInfo.query}}"  class="alert button expand">Search</a>
                         </div>
                     </div>
                 </li>
