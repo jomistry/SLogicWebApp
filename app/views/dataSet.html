@@ -6,13 +6,12 @@
 
 <div class="row">
     <div class="large-4 columns" style="background-color:lightgrey">
-        <h3>Refreshed</h3> 12 hours ago
+        <h3>Refreshed</h3> {{dataSet.metaData.refreshed_at}}
         <hr />
-        <h3>Frequency</h3> {{dataSet.frequency}}
+        <h3>Frequency</h3> {{dataSet.metaData.frequency}}
         <hr />
         <h3>Description</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eaque itaque commodi facere, explicabo nostrum
-            magnam! Architecto quaerat id neque unde earum asperiores cupiditate, dignissimos porro non, dolor soluta quod.</p>
+        <div ng-bind-html="dataSet.metaData.description"></div>
 
 
     </div>
@@ -37,3 +36,5 @@
             </div>
             <hr/>
         </div>
+    </div>
+</div>

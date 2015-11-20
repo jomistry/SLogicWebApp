@@ -5,17 +5,9 @@
   </div>
 
   <div class="row" ng-repeat="i in searchResults.datasets">
-<<<<<<< HEAD
      <div class="large-12 columns panel">
          <h4><a href="/#/ds/{{i.dataset_code}}">{{i.name}}</a></h4>
           <div ng-bind-html="i.description"></div>
-=======
-     <div class="large-12 columns">
-         <h4><a href="ds/{{i.name}}">{{i.name}}</a></h4>
-          <div ng-bind-html="{{i.description}}"></div>
-          <hr/>
-          <div>{{i.description}}</div>
->>>>>>> 1d18c57... add paging
           <div><span style="color:red">Code:</span><span style="color:black">{{i.database_code}}/{{i.dataset_code}}</span></div>
      </div>
      <hr />
@@ -25,13 +17,8 @@
   <div class="row">
     <div class="large-2 columns">
       <ul class="small-block-grid-2">
-<<<<<<< HEAD
         <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/p/{{searchResults.pageInfo.prev_page}}" ng-hide="searchResults.pageInfo.prev_page == null"><<</a></li>
         <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/p/{{searchResults.pageInfo.next_page}}" ng-hide="searchResults.pageInfo.next_page == null">>></a></li>
-=======
-        <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/{{searchResults.pageInfo.prev_page}}" ng-hide="searchResults.pageInfo.prev_page == null"><<</a></li>
-        <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/{{searchResults.pageInfo.next_page}}" ng-hide="searchResults.pageInfo.next_page == null">>></a></li>
->>>>>>> 1d18c57... add paging
       </ul>
     </div>
     <div class="large-10 columns"></div>
