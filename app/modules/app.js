@@ -1,4 +1,4 @@
-angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize'])
+angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize', 'directivesModule'])
     .config(['$routeProvider', function (r) {
         r.when('/', {
             templateUrl: 'views/searchResults.html',
@@ -20,5 +20,5 @@ angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize'])
             controller: 'dataSetCtrl',
             controllerAs: 'dataSetCtrl'
         })
-        .otherwise({ redirectTo: '/' });
+       // .otherwise({ redirectTo: '/' });
     }]);

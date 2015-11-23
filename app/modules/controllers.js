@@ -10,10 +10,8 @@ angular.module('controllersModule', ['servicesModule'])
             });
                 
         // only event is passed by keypress, $location needs to be injected in
-        self.doSearch = function ($event) {
-            if ($event.which === 13) {
-                $location.url('/' + self.pageInfo.query);
-            }
+        self.doSearch = function () {
+              $location.url('/' + self.pageInfo.query);
         };
 
     }])
@@ -33,4 +31,23 @@ angular.module('controllersModule', ['servicesModule'])
                 self.dataSet = data.dataset_data;
             })
             .error(function (e) { console.log(e); });
+    }])
+    .controller('dummyCtrl', ['$http', function (h) {
+        var self = this;
+        self.name = 'foo';
+        self.doSearch = function () {
+            console.log('in controller searh');
+            
+        self.pageInfo = {
+                query: "",
+                per_page: 12,
+                current_page: 1,
+                prev_page: null,
+                total_pages: 265,
+                total_count: 3173,
+                next_page: 2,
+                current_first_item: 1,
+                current_last_item: 12
+                };            
+        };
     }]);
