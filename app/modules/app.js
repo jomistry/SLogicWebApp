@@ -18,7 +18,7 @@ angular.module('mainApp', ['ngRoute', 'controllersModule', 'ngSanitize'])
         .when('/ds/:code', {
             templateUrl: 'views/dataSet.html',
             controller: 'dataSetCtrl',
-            controllerAs: 'dataSet'
+            controllerAs: 'dataSetCtrl'
         })
         .otherwise({ redirectTo: '/' });
     }]);

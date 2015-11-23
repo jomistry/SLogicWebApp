@@ -1,33 +1,35 @@
 <div class="row">
     <div class="large-12 columns">
-        <h1>DataSet name goes here</h1>
+        <h3>{{dataSetCtrl.metaData.name}}</h3>
     </div>
 </div>
 
 <div class="row">
     <div class="large-4 columns" style="background-color:lightgrey">
-        <h3>Refreshed</h3> {{dataSet.metaData.refreshed_at}}
+        <h4>Refreshed</h4> {{dataSetCtrl.metaData.refreshed_at}}
         <hr />
-        <h3>Frequency</h3> {{dataSet.metaData.frequency}}
+        <h4>Frequency</h4> {{dataSetCtrl.metaData.frequency}}
         <hr />
-        <h3>Description</h3>
-        <div ng-bind-html="dataSet.metaData.description"></div>
+        <h4>Description</h4>
+        <div ng-bind-html="dataSetCtrl.metaData.description"></div>
 
 
     </div>
     <div class="large-8 columns">
         <div class="row">
             <div class="large-12 columns">
-                <h3>Chart</h3>
+                <h4>Chart</h4>
                 <img src="img/chart.png" alt="Chart goes here" />
                 <div>
                 </div>
                 <div class="row">
                     <div class="large-12 columns">
-                        <h3>LATEST VALUES</h3>
-                        <ul class="large-block-grid-3 small-block-grid-1" ng-repeat="i in dataSet.column_names">
-                            <li>{{i}}
-                                <br><b>...</b>
+                        <h4>LATEST VALUES</h4>
+                        <!--dataSet.column_names -->
+                        <ul class="large-block-grid-3 small-block-grid-1" >
+                            <li ng-repeat="i in dataSetCtrl.dataSet.column_names">
+                                {{i}}
+                                <br><b>{{dataSetCtrl.dataSet.data[0][$index]}}</b>
                                 <hr>
                             </li>
                         </ul>
