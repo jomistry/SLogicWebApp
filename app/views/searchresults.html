@@ -13,11 +13,16 @@
      <hr />
   </div>
   
-  <paginator page-info="searchResults.pageInfo" page-url="/#/{{searchResults.pageInfo.query}}/pg/{:pagenum}"></paginator>
+  <div class="row">
+    <div class="large-12 columns">
+        <paginator page-info="searchResults.pageInfo" page-url="/#/{{searchResults.pageInfo.query}}/pg/{:pagenum}" num-page-links="5" storage-key="dataSetPager"></paginator>
+    </div>        
+  </div>
    
   <div class="row">
     <div class="large-2 columns">
       <ul class="small-block-grid-2">
+          <li>{{searchResults.pageInfo.per_page}}</li>
         <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/p/{{searchResults.pageInfo.prev_page}}" ng-hide="searchResults.pageInfo.prev_page == null"><<</a></li>
         <li><a href="" class="button small" ng-href="/#/{{searchResults.pageInfo.query}}/p/{{searchResults.pageInfo.next_page}}" ng-hide="searchResults.pageInfo.next_page == null">>></a></li>
       </ul>

@@ -9,11 +9,11 @@
 </head>
 <body ng-app="mainApp" ng-controller="dummyCtrl as c">
 
-     <input type="text" name="" id="" ng-model="foo" on-enter="c.doSearch();">
-     {{c.pageInfo.per_page}}
-     <paginator page-info="c.pageInfo" page-url="//AAPL/pg/{:pagenum}"></paginator>
+     <input type="text" name="" id="" ng-model="foo" on-enter="c.doSearch();" >
+     Item Per Page = {{c.pageInfo.per_page}}
+     <paginator page-info="c.pageInfo" ng-model="c.pageInfo.per_page" ng-change="c.processChange()" page-url="//AAPL/pg/{:pagenum}" num-page-links="5" storage-key="testdir"></paginator>
         
-    </div>         
+      
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
@@ -23,6 +23,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+    <script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>    
     <script src="modules/app.js"></script>     
     <script src="modules/directives.js"></script>     
     <script src="modules/controllers.js"></script>     

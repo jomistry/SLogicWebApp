@@ -4,14 +4,15 @@
   "description": "My first web app",
   "main": "getdata - Task2a.js",
   "dependencies": {
+    "angular-storage": "0.0.13",
     "http": "^0.0.0",
+    "http-server": "^0.8.5",
     "https": "^1.0.0",
-    "moment": "^2.10.6",
-    "http-server": "^0.8.5"
+    "moment": "^2.10.6"
   },
   "devDependencies": {},
   "scripts": {
-     "start": "http-server app/ -a localhost -p 8080 -c-1"
+    "start": "http-server app/ -a localhost -p 8080 -c-1"
   },
   "repository": {
     "type": "git",

@@ -8,7 +8,7 @@ angular.module('controllersModule', ['servicesModule'])
                 self.datasets = data.datasets;
                 self.pageInfo = data.meta;
             });
-                
+
         // only event is passed by keypress, $location needs to be injected in
         self.doSearch = function () {
               $location.url('/' + self.pageInfo.query);
@@ -49,5 +49,9 @@ angular.module('controllersModule', ['servicesModule'])
                 next_page: 2,
                 current_first_item: 1,
                 current_last_item: 12
-                };            
+                };   
+                
+         self.processChange = function (){
+             console.log(self.pageInfo.per_page);
+         }         
     }]);

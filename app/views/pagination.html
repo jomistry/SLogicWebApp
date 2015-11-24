@@ -3,9 +3,16 @@
         <li class="{{pg.pageInfo.current_page > 1 ? 'arrow' :'arrow unavailable'}}">
             <a href="{{pg.getPageUrl(pg.pageInfo.current_last_item - 1)}}">&laquo;</a>
         </li>
-        <li ng-repeat="i in pg.pageInfo.per_page | range:pg.pageInfo.current_page" class="{{pg.pageInfo.current_page == i ? 'current' : ''}}"><a href="{{pg.getPageUrl(i)}}">{{i}}</a></li>
+        <li ng-repeat="i in pg.numPageLinks | range:pg.pageInfo.current_page" class="{{pg.pageInfo.current_page == i ? 'current' : ''}}"><a href="{{pg.getPageUrl(i)}}">{{i}}</a></li>
         <li class="{{pg.pageInfo.current_last_item < pg.pageInfo.total_pages ? 'arrow' :'arrow unavailable'}}">
             <a href="{{pg.getPageUrl(pg.pageInfo.current_last_item + 1)}}">&raquo;</a>
         </li>
     </ul>
+    <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Page Size</button>
+    <br>
+    <ul id="drop1" data-dropdown-content class="f-dropdownl" aria-hidden="true">
+        <li ng-repeat="i in 5 | range:1"><a ng-click="pg.setPageSize(i*pg.PAGE_INCREMENT)">{{(i*pg.PAGE_INCREMENT) + ' ' + (i*pg.PAGE_INCREMENT === pg.pageInfo.per_page ? "(selected)"  : "")}}</a></li>
+    </ul>           
+        
 </div>
+ 
