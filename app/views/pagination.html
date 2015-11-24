@@ -1,8 +1,11 @@
 <div class="pagination-centered">
-  <ul class="pagination">
-    <li class="arrow unavailable"><a href="">&laquo;</a></li>
-    <li class="current"><a href="">1</a></li>
-    <li ng-repeat="i in pg.pages"><a href="">{{$index}}</a></li>
-    <li class="arrow"><a href="">&raquo;</a></li>
-  </ul>
+    <ul class="pagination">
+        <li class="{{pg.pageInfo.current_page > 1 ? 'arrow' :'arrow unavailable'}}">
+            <a href="{{pg.getPageUrl(pg.pageInfo.current_last_item - 1)}}">&laquo;</a>
+        </li>
+        <li ng-repeat="i in pg.pageInfo.per_page | range:pg.pageInfo.current_page" class="{{pg.pageInfo.current_page == i ? 'current' : ''}}"><a href="{{pg.getPageUrl(i)}}">{{i}}</a></li>
+        <li class="{{pg.pageInfo.current_last_item < pg.pageInfo.total_pages ? 'arrow' :'arrow unavailable'}}">
+            <a href="{{pg.getPageUrl(pg.pageInfo.current_last_item + 1)}}">&raquo;</a>
+        </li>
+    </ul>
 </div>

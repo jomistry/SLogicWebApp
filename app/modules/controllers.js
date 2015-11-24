@@ -37,6 +37,7 @@ angular.module('controllersModule', ['servicesModule'])
         self.name = 'foo';
         self.doSearch = function () {
             console.log('in controller searh');
+        };
             
         self.pageInfo = {
                 query: "",
@@ -49,5 +50,4 @@ angular.module('controllersModule', ['servicesModule'])
                 current_first_item: 1,
                 current_last_item: 12
                 };            
-        };
     }]);

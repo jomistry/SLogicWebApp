@@ -13,24 +13,33 @@ angular.module('directivesModule', [])
             }
         }
     })
+    .filter('range', function () {
+        return function (n, offset) {
+            var res = [];
+            for (var i = 0; i < n; i++) {
+                res.push(i + offset);
+            }
+            return res;
+        };
+    })
     .directive('paginator', function () {
         return {
             restrict: 'E',
             scope: {
-                urlTemplate: '@',
-                pageInfo: '=pi',
+                urlPage: '@pageUrl',
+                pageInfo: '=pageInfo'
             },
             transclude: false,
             templateUrl: '/views/pagination.html',
-            controller:function(){
-                var self = this;
-                self.pages = new Array(10);
-                for(var i=1; i<=pi.per_page; i++)
-                    self.pages[i] = i;
+            controller: function ($scope) {
+                return {
+                    // move the directive scope to controller
+                    pageInfo: $scope.pageInfo,
+                    getPageUrl: function (i) {
+                        return $scope.urlPage.replace('{:pagenum}', i);
+                    }
+                };
             },
-            controllerAs: 'pg',
-            link: function (scope, element, attr) {
-                       
-            }
+            controllerAs: 'pg'
         }
     });
