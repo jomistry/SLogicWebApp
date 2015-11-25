@@ -11,7 +11,14 @@
 
      <input type="text" name="" id="" ng-model="foo" on-enter="c.doSearch();" >
      Item Per Page = {{c.pageInfo.per_page}}
-     <paginator page-info="c.pageInfo" ng-model="c.pageInfo.per_page" ng-change="c.processChange()" page-url="//AAPL/pg/{:pagenum}" num-page-links="5" storage-key="testdir"></paginator>
+     <paginator page-info="c.pageInfo" 
+            ng-model="c.pageInfo.per_page" 
+            ng-change="c.processChange()"
+            on-change="c.processChange()" 
+            page-url="//AAPL/pg/{:pagenum}" 
+            num-page-links="5" 
+            storage-key="testdir">
+      </paginator>
         
       
     <script src="js/vendor/jquery.js"></script>

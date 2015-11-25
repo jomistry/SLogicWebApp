@@ -29,6 +29,7 @@ angular.module('directivesModule', ['angular-storage'])
                 storageKey: '@storageKey',
                 urlPage: '@pageUrl',
                 numPageLinks: '@',
+                onChange: '&',
                 pageInfo: '=pageInfo'
             },
             transclude: false,
@@ -47,7 +48,7 @@ angular.module('directivesModule', ['angular-storage'])
                         //$scope.apply(function () {
                             $scope.pageInfo.per_page = pgSize;
                         //});
-                       
+                        $scope.onChange();
                         console.log(pgSize);
                     }
                 };

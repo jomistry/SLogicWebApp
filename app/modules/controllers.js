@@ -11,7 +11,7 @@ angular.module('controllersModule', ['servicesModule'])
 
         // only event is passed by keypress, $location needs to be injected in
         self.doSearch = function () {
-              $location.url('/' + self.pageInfo.query);
+            $location.url('/' + self.pageInfo.query);
         };
 
     }])
@@ -38,20 +38,20 @@ angular.module('controllersModule', ['servicesModule'])
         self.doSearch = function () {
             console.log('in controller searh');
         };
-            
+
         self.pageInfo = {
-                query: "",
-                per_page: 12,
-                current_page: 1,
-                prev_page: null,
-                total_pages: 265,
-                total_count: 3173,
-                next_page: 2,
-                current_first_item: 1,
-                current_last_item: 12
-                };   
-                
-         self.processChange = function (){
-             console.log(self.pageInfo.per_page);
-         }         
+            query: "",
+            per_page: 12,
+            current_page: 1,
+            prev_page: null,
+            total_pages: 265,
+            total_count: 3173,
+            next_page: 2,
+            current_first_item: 1,
+            current_last_item: 12
+        };
+
+        self.processChange = function () {
+            console.log(self.pageInfo.per_page);
+        };
     }]);

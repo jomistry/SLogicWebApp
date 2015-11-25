@@ -6,6 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 30px;
+            width: 100%;
+            background: #999;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,20 +28,25 @@
         </ul>
     </nav>
 
-    <div class="row">
-        <div class="small-6 large-4 columns" style="background-color:yellow;height:100%">SIDEBAR</div>
-        <div class="small-6 large-8 columns" style="background-color:green;height:100%"> MAIN APP</div>
+    <div class="row" style="margin:0px;height:100%;width:100%;">
+        <div class="small-6 large-4 columns" style="background-color:yellow;height:100%">
+            SIDEBAR
+        </div>
+        <div class="small-6 large-8 columns" style="background-color:green;height:100%;"> MAIN APP MAIN APP
+        </div>
     </div>
 
-    <div class="fixed-bottom">
-        <nav class="top-bar" data-topbar role="navigation" style="background-color:blue">
+    <div class="footer" style="background-color:blue"> MY FOOTER</div>
+
+    <!--div class="fixed-bottom">
+        <nav class="top-bar bottom-bar" data-topbar role="navigation" style="background-color:blue">
             <ul class="title-area">
                 <li class="name">
                     <h1><a href="#">My Footer</a></h1>
                 </li>
             </ul>
         </nav>
-    </div>
+    </div-->
 
 
     <script src="js/vendor/jquery.js"></script>
